@@ -128,7 +128,7 @@ public class MusicOrganizer
             player.startPlaying(tracks.get(0).getFilename());
             
         }
-        track.contadorCanciones();
+        
     }
 
     /**

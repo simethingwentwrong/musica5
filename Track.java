@@ -72,7 +72,7 @@ public class Track
      */
     public String getDetails()
     {
-        return artist + ": " + title + "  (file: " + filename + ")";
+        return artist + ": " + title + "  (file: " + filename + ") veces reproducidas: " + playCount ;
     }
     
     /**
@@ -86,6 +86,7 @@ public class Track
         this.artist = artist;
         this.title = title;
         this.filename = filename;
+        
     }
     
     /**
