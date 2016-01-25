@@ -37,7 +37,20 @@ public class MusicOrganizer
     {
         tracks.add(new Track(filename));
     }
-
+    
+    /**
+     *añade a la cancion el  nombre del album
+     */
+    public void añadirAlbum(String cancion, String nombreDelAlbum)
+    {
+       for(Track track : tracks) {
+            if(track.getTitle().contains(cancion)) 
+            {
+                returnAlbum();
+            }
+        } 
+    }
+    
     /**
      * Add a track to the collection.
      * @param track The track to be added.
