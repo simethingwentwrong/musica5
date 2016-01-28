@@ -216,6 +216,10 @@ public class MusicOrganizer
             }
         } 
     }
+    
+    /**
+     * Metodo que te dice si hay musica sonando o no
+     */
     public void isPlaying()
     {
         if (sonando)
@@ -228,6 +232,9 @@ public class MusicOrganizer
         }
     }
     
+    /**
+     * metodo que hace una lista de todas las canciones con el metodo iterator
+     */
     public void listAllTrackWithIterator ()
     {        
         Iterator <Track> it = tracks.iterator();
@@ -238,6 +245,9 @@ public class MusicOrganizer
         }
     }
     
+    /**
+     * meotodo que te borra canciones con el artista que elijas
+     */
     public void removeByArtist (String artist)
     {
         Iterator <Track> it = tracks.iterator();
@@ -250,6 +260,10 @@ public class MusicOrganizer
             }
         }
     }
+    
+    /**
+     * meotodo que te borra canciones con el titulo  que elijas
+     */
      public void removeByTitle (String title)
     {
         Iterator <Track> it = tracks.iterator();
