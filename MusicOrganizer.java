@@ -236,15 +236,32 @@ public class MusicOrganizer
             Track track = it.next();
             System.out.println(track.getDetails());
         }
+    }
+    
+    public void removeByArtist (String artist)
+    {
+        Iterator <Track> it = tracks.iterator();
+        while (it.hasNext())
+        {
+            Track track = it.next();
+            if (track.getArtist().contains(artist))
+            {
+                it.remove();
+            }
+        }
+    }
+     public void removeByTitle (String title)
+    {
+        Iterator <Track> it = tracks.iterator();
+        while (it.hasNext())
+        {
+            Track track = it.next();
+            if(track.getTitle().contains(title))
+            {
+                it.remove();
+            }
+
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
+       }
     }
 }
