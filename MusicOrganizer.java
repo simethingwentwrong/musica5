@@ -15,6 +15,7 @@ public class MusicOrganizer
     private MusicPlayer player;
     // A reader that can read music files and load them as tracks.
     private TrackReader reader;
+    private boolean sonando;
 
     /**
      * Create a MusicOrganizer
@@ -24,6 +25,7 @@ public class MusicOrganizer
         tracks = new ArrayList<Track>();
         player = new MusicPlayer();
         reader = new TrackReader();
+        sonando = false;
         readLibrary("audio");
         System.out.println("Music library loaded. " + getNumberOfTracks() + " tracks.");
         System.out.println();
@@ -46,7 +48,7 @@ public class MusicOrganizer
        for(Track track : tracks) {
             if(track.getTitle().contains(cancion)) 
             {
-                returnAlbum();
+                
             }
         } 
     }
@@ -66,12 +68,18 @@ public class MusicOrganizer
      */
     public void playTrack(int index)
     {
-       
+       if(sonando)
+       {
+           System.out.println( "No se puede reproducir otra cancion esta sonando ya una pare la otra");
+        }
+        else{
         if(indexValid(index)) {
             Track track = tracks.get(index);
             player.startPlaying(track.getFilename());
+            sonando = true;
             System.out.println("Now playing: " + track.getArtist() + " - " + track.getTitle());
             track.contadorCanciones();
+        }
         }
     }
 
@@ -137,10 +145,17 @@ public class MusicOrganizer
      */
     public void playFirst()
     {
+        if(sonando)
+       {
+           System.out.println( "No se puede reproducir otra cancion esta sonando ya una pare la otra");
+        }
+        else{
         if(tracks.size() > 0) {            
             player.startPlaying(tracks.get(0).getFilename());
+            sonando = true;
             
         }
+       }
         
     }
 
@@ -150,6 +165,7 @@ public class MusicOrganizer
     public void stopPlaying()
     {
         player.stop();
+        sonando = false;
     }
 
     /**
@@ -199,5 +215,16 @@ public class MusicOrganizer
                 System.out.println(track.getDetails());
             }
         } 
+    }
+    public void isPlaying()
+    {
+        if (sonando)
+        {
+            System.out.println( "Hay musica sonando");
+        }
+        else
+        {
+            System.out.println("No hay musica sonando");
+        }
     }
 }
